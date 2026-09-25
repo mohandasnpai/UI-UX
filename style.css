@@ -1,0 +1,35 @@
+body {
+    background-color:lightblue;
+    text-align:centre;
+    background-image: url(https://static.vecteezy.com/vite/assets/photo-masthead-375-BoK_p8LG.webp);
+    background-repeat: no-repeat;
+    background-size: 400px;
+    background-position: center;
+
+}
+p{
+    text-align: center;
+    font-size: 20px;
+    margin-top: 20px;
+    border-style:dotted;
+    border-right-style:solid;
+    border-left-style:solid;
+    font-style:italic;
+    text-decoration:underline;
+    text-transform:uppercase;
+    opacity: 0.75;
+
+}
+h1{
+    font-style:italic;
+    font-size: 20px;
+    font-weight: bold;
+    word-spacing: 5px;
+    padding: 30px;
+    transition: all 0.5s;
+
+}
+h1:hover {
+    color: grey;
+    font-size: 30px;
+}
