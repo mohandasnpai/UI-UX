@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <script language ="javascript">
+            function sumitinfo(){
+                if(qz.log.value===""){
+                   alert("enter login name");
+                }
+                else if(qz.pass.value===""){
+                    alert("enter password");
+                }
+                else{
+                    alert("login successful");
+                }
+            }
+        </script>
+    </head>
+    <body bgcolor="grey">
+        <form name = qz>
+            wellcome to:
+            <h1>DAS & Sons Constructions</h1>
+            <hr>
+            login name<input type="text" name="log"value=""><br><br>
+            password<input type="password" name="pass"value=""><br><br>
+            <input type="button" value="submit" onclick="sumitinfo()">
+            <input type="reset" name=reset value="reset">
+        </form>
+    </body>
+</html> 

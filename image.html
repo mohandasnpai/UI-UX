@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Image Slider</title>
+    </head>
+    <body>
+        <h2>Image Slider</h2>
+        <img id="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOYvQs_n_fIqfduy9oMhjkC2OQ5bZf2kUroJVvn8xq7dpvtyk42QMdGhLd&s=10">
+        <br><br>
+        <button onclick="previous()">Previous</button>
+        <button onclick="next()">Next</button>
+        <script>
+            let images =[
+                "https://img.magnific.com/premium-photo/cool-cat-neon-sunglasses_1150025-57683.jpg?w=360",
+                "https://thumbs.dreamstime.com/b/cat-wearing-headphones-glasses-neon-colors-dark-background-cool-setting-creates-vibrant-modern-atmosphere-use-376507594.jpg",
+                "https://png.pngtree.com/thumb_back/fh260/background/20241217/pngtree-cool-cat-wearing-sunglasses-and-playing-music-on-a-colorful-stage-image_16822465.jpg",];
+            let i = 0;
+            function next(){
+                i++;
+                if(i >= images.length){
+                    i = 0;
+                }
+                document.getElementById("image").src = images[i];
+            }
+
+            function previous(){
+                i--;
+                if(i < 0){
+                    i = images.length - 1;
+                }
+                document.getElementById("image").src = images[i];
+            }
+            setInterval(next, 3000);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        nav {
+            background: black;
+            padding: 15px;
+        }
+
+        nav a, button {
+            color: white;
+            margin: 15px;
+        }
+
+        .dropdown-menu {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+
+    <button onclick="showMenu()">Services</button>
+
+    <div id="menu" class="dropdown-menu">
+        <a href="#">Web Design</a>
+        <a href="#">Development</a>
+        <a href="#">SEO</a>
+    </div>
+
+    <a href="#">Contact</a>
+</nav>
+
+<script>
+function showMenu() {
+    document.getElementById("menu").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>
