@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Demon Slayer - Palindrome Checker</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+
+            /* Demon Slayer background image */
+            background-image:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.55),
+                    rgba(0, 0, 0, 0.75)
+                ),
+                url("https://www.wallsnapy.com/img_gallery/tanjiro-kamado-demon-slayer-4k-wallpaper-712.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: white;
+        }
+
+        /* Main checker panel */
+        .container {
+            width: 100%;
+            max-width: 400px;
+            padding: 35px 25px;
+            text-align: center;
+
+            background: rgba(10, 10, 16, 0.88);
+            border: 2px solid #d91e36;
+            border-radius: 16px;
+
+            box-shadow:
+                0 0 20px rgba(255, 0, 40, 0.45),
+                0 0 40px rgba(0, 0, 0, 0.7);
+
+            backdrop-filter: blur(5px);
+        }
+
+        .symbol {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: #ff4055;
+            font-size: 27px;
+            margin: 10px 0;
+            text-shadow: 0 0 12px rgba(255, 40, 65, 0.7);
+        }
+
+        .line {
+            width: 70px;
+            height: 3px;
+            background: #e5253e;
+            margin: 15px auto;
+            border-radius: 5px;
+        }
+
+        .subtitle {
+            color: #eeeeee;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            margin: 20px 0 15px;
+
+            border: 2px solid #a51d32;
+            border-radius: 8px;
+            background: rgba(25, 25, 35, 0.95);
+            color: white;
+
+            text-align: center;
+            font-size: 17px;
+            outline: none;
+        }
+
+        input::placeholder {
+            color: #aaa;
+        }
+
+        input:focus {
+            border-color: #ff4055;
+            box-shadow: 0 0 12px rgba(255, 40, 65, 0.5);
+        }
+
+        button {
+            padding: 12px 22px;
+            margin: 5px;
+            border: none;
+            border-radius: 7px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .check-btn {
+            color: white;
+            background: #c51e35;
+        }
+
+        .check-btn:hover {
+            background: #f12d49;
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(255, 40, 65, 0.6);
+        }
+
+        .clear-btn {
+            color: white;
+            background: #263c59;
+        }
+
+        .clear-btn:hover {
+            background: #365b83;
+            transform: translateY(-2px);
+        }
+
+        #result {
+            margin-top: 22px;
+            font-size: 17px;
+            font-weight: bold;
+            overflow-wrap: anywhere;
+        }
+
+        .success {
+            color: #75ffac;
+        }
+
+        .error {
+            color: #ff7180;
+        }
+
+        .footer {
+            color: #ddd;
+            font-size: 12px;
+            margin-top: 25px;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="symbol">⚔️</div>
+
+        <h1>DEMON SLAYER</h1>
+
+        <div class="line"></div>
+
+        <p class="subtitle">
+            PALINDROME CHECKER<br>
+            Test your number, Demon Slayer!
+        </p>
+
+        <input
+            type="text"
+            id="number"
+            placeholder="Enter a number"
+            inputmode="numeric"
+            onkeydown="if(event.key === 'Enter') checkPalindrome()"
+        >
+
+        <div>
+            <button
+                class="check-btn"
+                onclick="checkPalindrome()"
+            >
+                ⚔ Check
+            </button>
+
+            <button
+                class="clear-btn"
+                onclick="clearData()"
+            >
+                Clear
+            </button>
+        </div>
+
+        <p id="result" aria-live="polite"></p>
+
+        <div class="footer">
+            WATER • FLAME • THUNDER
+        </div>
+
+    </div>
+
+    <script>
+        function checkPalindrome() {
+            let num = document
+                .getElementById("number")
+                .value.trim();
+
+            let result = document.getElementById("result");
+
+            if (num === "") {
+                result.className = "error";
+                result.textContent = "Enter a number first!";
+                return;
+            }
+
+            if (!/^\d+$/.test(num)) {
+                result.className = "error";
+                result.textContent = "Enter a valid whole number!";
+                return;
+            }
+
+            let reverse = num.split("").reverse().join("");
+
+            if (num === reverse) {
+                result.className = "success";
+                result.textContent =
+                    "✓ " + num + " is a Palindrome!";
+            } else {
+                result.className = "error";
+                result.textContent =
+                    "✗ " + num + " is not a Palindrome!";
+            }
+        }
+
+        function clearData() {
+            document.getElementById("number").value = "";
+            document.getElementById("result").textContent = "";
+            document.getElementById("result").className = "";
+
+            document.getElementById("number").focus();
+        }
+    </script>
+
+</body>
+</html>
